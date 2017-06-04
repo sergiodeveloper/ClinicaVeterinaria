@@ -18,7 +18,7 @@ class AnimalDAO extends GenericDAO{
   }
   
   /**
-   * TODO
+   * Obter animais pertencentes a um cliente específico
    * @return string
    */
   public function Vis_Animal(): string{

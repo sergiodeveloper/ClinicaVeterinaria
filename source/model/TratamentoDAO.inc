@@ -18,7 +18,7 @@ class TratamentoDAO extends GenericDAO{
   }
   
   /**
-   * TODO
+   * Obter os tratamentos feitos por um determinado animal
    * @return string
    */
   public function Vis_Trat(): string{

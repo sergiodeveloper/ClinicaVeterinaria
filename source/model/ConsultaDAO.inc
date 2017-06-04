@@ -18,7 +18,7 @@ class ConsultaDAO extends GenericDAO{
   }
   
   /**
-   * TODO
+   * Obter todas as consultas de um determinado tratamento
    * @return string
    */
   public function Lis_Con(): string{
@@ -26,7 +26,7 @@ class ConsultaDAO extends GenericDAO{
   }
   
   /**
-   * TODO
+   * Obter uma consulta específica
    * @return string
    */
   public function Ver_Con(): string{
