@@ -7,31 +7,31 @@ class Cliente{
   
   /**
    * Nome do cliente
-   * @type string;
+   * @type string
    */
   private $nom_cli;
   
   /**
    * Endereço do cliente
-   * @type string;
+   * @type string
    */
   private $end_cli;
   
   /**
    * Telefone do cliente
-   * @type string;
+   * @type string
    */
   private $tel_cli;
   
   /**
    * Cep do cliente
-   * @type long;
+   * @type long
    */
   private $cep_cli;
   
   /**
    * Email do cliente
-   * @type string;
+   * @type string
    */
   private $email_cli;
   

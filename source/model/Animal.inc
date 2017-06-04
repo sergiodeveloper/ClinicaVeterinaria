@@ -5,20 +5,20 @@
 class Animal{
   
   /**
-   * Nome do animlal
-   * @type string;
+   * Nome do animal
+   * @type string
    */
   private $nome_animal;
   
   /**
    * Idade do animal
-   * @type int;
+   * @type int
    */
   private $idade_animal;
   
   /**
    * Sexo do animal
-   * @type int;
+   * @type int
    */
   private $sexo_animal;
   
