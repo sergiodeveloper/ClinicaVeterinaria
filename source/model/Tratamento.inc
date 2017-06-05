@@ -1,5 +1,8 @@
 <?php
 
+// Incluir dependências
+require_once "Consulta.inc";
+
 /**
  * Classe Tratamento
  */
@@ -18,6 +21,12 @@ class Tratamento{
   private $dat_fim;
   
   /**
+   * Consultas feitas para este tratamento
+   * @type Consulta[] Lista de consultas
+   */
+  private $consultas = array();
+  
+  /**
    * Construtor da classe Tratamento
    * @param {integer} $inicio Data de início em timestamp
    * @param {integer} $fim    Data de fim em timestamp
@@ -33,4 +42,21 @@ class Tratamento{
     $this->dat_fim = $fim;
   }
   
+  
+  /**
+   * Adicionar consulta à lista
+   * @param Consulta $consulta
+   */
+  public function adicionarConsulta(Consulta $consulta): void{
+    // Adicionar no array (push)
+    $this->consultas[] = $consulta;
+  }
+  
+  /**
+   * Obter lista de consultas
+   * @return Consulta[]
+   */
+  public function obterConsultas(): array{
+    return $this->consultas;
+  }
 }

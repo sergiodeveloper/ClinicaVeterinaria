@@ -2,6 +2,7 @@
 
 // Incluir dependências
 require_once "Especie.inc";
+require_once "Tratamento.inc";
 
 /**
  * Classe Animal
@@ -34,6 +35,12 @@ class Animal{
   private $especie;
   
   /**
+   * Lista de tratamentos feitos para este animal
+   * @type Tratamento[] Lista de tratamentos
+   */
+  private $tratamentos = array();
+  
+  /**
    * Construtor da classe Animal
    * @param {string}  $nome    Nome do animal
    * @param {int}     $idade   Idade do animal
@@ -55,4 +62,20 @@ class Animal{
   }
   
   
+  /**
+   * Adicionar tratamento à lista
+   * @param Tratamento $tratamento
+   */
+  public function adicionarTratamento(Tratamento $tratamento): void{
+    // Adicionar no array (push)
+    $this->tratamentos[] = $tratamento;
+  }
+  
+  /**
+   * Obter lista de tratamentos
+   * @return Animal[]
+   */
+  public function obterTratamentos(): array{
+    return $this->tratamentos;
+  }
 }

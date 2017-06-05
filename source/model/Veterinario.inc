@@ -1,4 +1,8 @@
 <?php
+
+// Adicionar dependências
+require_once "Consulta.inc";
+
 /**
  * Classe Veterinario
  */
@@ -23,6 +27,12 @@ class Veterinario{
   private $tel_vet;
   
   /**
+   * Consultas atendidas pelo veterinário
+   * @type Consulta[] Lista de consultas
+   */
+  private $consultas = array();
+  
+  /**
    * Construtor da classe Veterinario
    * @param {string} $nome     Nome do veterinário
    * @param {string} $endereco Endereço do veterinário
@@ -39,5 +49,22 @@ class Veterinario{
     $this->telefone = $telefone;
   }
   
+  
+  /**
+   * Adicionar consulta à lista
+   * @param Consulta $consulta
+   */
+  public function adicionarConsulta(Consulta $consulta): void{
+    // Adicionar no array (push)
+    $this->consultas[] = $consulta;
+  }
+  
+  /**
+   * Obter lista de consultas
+   * @return Consulta[]
+   */
+  public function obterConsultas(): array{
+    return $this->consultas;
+  }
   
 }
