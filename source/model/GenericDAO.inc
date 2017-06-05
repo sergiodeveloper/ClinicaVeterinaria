@@ -18,13 +18,15 @@ abstract class GenericDAO{
   public function __construct(){
     if(GenericDAO::$connection == null){
       // Abrir uma conexão com o banco de dados
-      $connection = new \PDO($dsn, $user, $password); // TODO
+      /*
+      $connection = new \PDO($dsn, $user, $password); // << TODO
       
       $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
       $connection->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
       
       // Manter conexão na classe
       GenericDAO::$connection = $connection;
+      */
     }
   }
   
