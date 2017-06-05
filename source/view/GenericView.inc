@@ -30,7 +30,7 @@ abstract class GenericView{
   /**
    * Obter variável desta view
    * @param {string} $name Nome da variável
-   * @return any Qualquer tipo que estiver na lista
+   * @return any Qualquer tipo de dado que estiver na lista
    */
   protected function getVariable(string $name){
     return $this->variables[$name];
