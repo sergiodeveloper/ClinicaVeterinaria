@@ -56,7 +56,7 @@ class Cliente{
     string $nome,
     string $endereco,
     string $telefone,
-    integer $cep,
+    int $cep,
     string $email
   ){
     // Manter atributos
@@ -71,7 +71,7 @@ class Cliente{
    * Adicionar animal à lista
    * @param Animal $animal
    */
-  public function adicionarAnimal(Animal $animal): void{
+  public function adicionarAnimal(Animal $animal){
     // Adicionar no array (push)
     $this->animais[] = $animal;
   }
@@ -82,5 +82,45 @@ class Cliente{
    */
   public function obterAnimais(): array{
     return $this->animais;
+  }
+  
+  /**
+   * Obter nome do cliente
+   * @return string
+   */
+  public function getNome(): string{
+    return $this->nom_cli;
+  }
+  
+  /**
+   * Obter endereço do cliente
+   * @return string
+   */
+  public function getEndereco(): string{
+    return $this->end_cli;
+  }
+  
+  /**
+   * Obter cep do cliente
+   * @return int
+   */
+  public function getCep(): int{
+    return $this->cep_cli;
+  }
+  
+  /**
+   * Obter email do cliente
+   * @return string
+   */
+  public function getEmail(): string{
+    return $this->email_cli;
+  }
+  
+  /**
+   * Obter telefone do cliente
+   * @return string
+   */
+  public function getTelefone(): string{
+    return $this->tel_cli;
   }
 }

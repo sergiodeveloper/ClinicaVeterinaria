@@ -66,7 +66,7 @@ class Animal{
    * Adicionar tratamento à lista
    * @param Tratamento $tratamento
    */
-  public function adicionarTratamento(Tratamento $tratamento): void{
+  public function adicionarTratamento(Tratamento $tratamento){
     // Adicionar no array (push)
     $this->tratamentos[] = $tratamento;
   }
@@ -77,5 +77,37 @@ class Animal{
    */
   public function obterTratamentos(): array{
     return $this->tratamentos;
+  }
+  
+  /**
+   * Obter nome do animal
+   * @return string
+   */
+  public function getNome(): string{
+    return $this->nome_animal;
+  }
+  
+  /**
+   * Obter idade do animal
+   * @return int
+   */
+  public function getIdade(): int{
+    return $this->idade_animal;
+  }
+  
+  /**
+   * Obter nome do animal
+   * @return string
+   */
+  public function getSexo(): int{
+    return $this->sexo_animal;
+  }
+  
+  /**
+   * Obter espécie
+   * @return Especie
+   */
+  public function getEspecie(): Especie{
+    return $this->especie;
   }
 }

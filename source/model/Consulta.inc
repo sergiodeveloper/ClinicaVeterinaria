@@ -11,7 +11,7 @@ class Consulta{
   
   /**
    * Data da consulta em timestamp (long)
-   * @type integer
+   * @type int
    */
   private $dat_con;
   
@@ -29,11 +29,11 @@ class Consulta{
   
   /**
    * Construtor da classe Consulta
-   * @param {integer} $data      Data da consulta em timestamp
+   * @param {int}     $data      Data da consulta em timestamp
    * @param {string}  $historico Documentação histórica da consulta
    */
   public function __construct(
-    integer $data,
+    int $data,
     string $historico
   ){
     // Manter atributos
@@ -46,7 +46,7 @@ class Consulta{
    * Adicionar exame à lista
    * @param Exame $exame
    */
-  public function adicionarExame(Exame $exame): void{
+  public function adicionarExame(Exame $exame){
     // Adicionar no array (push)
     $this->exames[] = $exame;
   }

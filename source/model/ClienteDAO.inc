@@ -47,7 +47,7 @@ class ClienteDAO extends GenericDAO{
       $nome,
       "Grécia - SP, Havaí",
       "-55 (12) 345-5678",
-      "56203-499",
+      56203499,
       "$nome@email.com"
     );
   }

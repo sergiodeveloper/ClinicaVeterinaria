@@ -54,7 +54,7 @@ class Veterinario{
    * Adicionar consulta à lista
    * @param Consulta $consulta
    */
-  public function adicionarConsulta(Consulta $consulta): void{
+  public function adicionarConsulta(Consulta $consulta){
     // Adicionar no array (push)
     $this->consultas[] = $consulta;
   }

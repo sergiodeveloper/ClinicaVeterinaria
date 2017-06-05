@@ -2,6 +2,7 @@
 
 // Incluir dependências
 require_once "../model/ClienteDAO.inc";
+require_once "../model/AnimalDAO.inc";
 
 /**
  * Classe de controle da Clínica Veterinária
@@ -25,9 +26,20 @@ class ClinicaController{
     
     // Encontrar cliente
     $clienteDao = new ClienteDAO();
-    $cliente = $clienteDAO->consultarPorNome($nome);
+    $cliente = $clienteDao->consultarPorNome($nome);
     
+    return $cliente;
+  }
+  
+  /**
+   * Pesquisar animais de um determinado cliente
+   * @return Animal[] Lista de animais
+   */
+  public function pesquisarAnimais(Cliente $cliente): array{
+    $animalDao = new AnimalDAO();
+    $animais = $animalDao->obterAnimais($cliente);
     
+    return $animais;
   }
   
 }

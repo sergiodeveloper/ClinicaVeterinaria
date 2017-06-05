@@ -41,7 +41,7 @@ abstract class GenericView{
    * @param {string} $name  Nome da variável
    * @param {any}    $value
    */
-  protected function addVariable(string $name, $value): void{
+  protected function addVariable(string $name, $value){
     $this->variables[$name] = $value;
   }
   
@@ -49,7 +49,7 @@ abstract class GenericView{
    * Remover variável da view
    * @param {string} $name Nome da variável
    */
-  protected function removeVariable(string $name): void{
+  protected function removeVariable(string $name){
     unset($this->variables[$name]);
   }
   

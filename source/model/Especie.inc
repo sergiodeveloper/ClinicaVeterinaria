@@ -23,5 +23,12 @@ class Especie{
     $this->nom_esp = $nome;
   }
   
+  /**
+   * Obter nome da espécie
+   * @return string
+   */
+  public function getNome(): string{
+    return $this->nom_esp;
+  }
   
 }

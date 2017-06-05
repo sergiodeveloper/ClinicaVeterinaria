@@ -10,13 +10,13 @@ class Tratamento{
   
   /**
    * Data de início do tratamento em timestamp (long)
-   * @type integer
+   * @type int
    */
   private $dat_ini;
   
   /**
    * Data de fim do tratamento em timestamp (long)
-   * @type integer
+   * @type int
    */
   private $dat_fim;
   
@@ -28,14 +28,14 @@ class Tratamento{
   
   /**
    * Construtor da classe Tratamento
-   * @param {integer} $inicio Data de início em timestamp
-   * @param {integer} $fim    Data de fim em timestamp
+   * @param {int} $inicio Data de início em timestamp
+   * @param {int} $fim    Data de fim em timestamp
    */
   public function __construct(
     string $nome,
     string $endereco,
-    integer $inicio,
-    integer $fim
+    int    $inicio,
+    int    $fim
   ){
     // Manter atributos
     $this->dat_ini = $inicio;
@@ -47,7 +47,7 @@ class Tratamento{
    * Adicionar consulta à lista
    * @param Consulta $consulta
    */
-  public function adicionarConsulta(Consulta $consulta): void{
+  public function adicionarConsulta(Consulta $consulta){
     // Adicionar no array (push)
     $this->consultas[] = $consulta;
   }

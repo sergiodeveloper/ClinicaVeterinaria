@@ -1,14 +1,15 @@
 <?php
 
-// Incluir dependências
-require_once "../view/HomeView.inc";
-
+// Habilitar exibição de erros e alertas
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Exibir página principal
-$home = new HomeView();
+// Incluir dependências
+require_once "../view/HomeView.inc";
 
-echo $home->getSourceCode();
+// Exibir a página
+$page = new HomeView();
+
+echo $page->getSourceCode();
 
 
