@@ -28,6 +28,13 @@
     
     <main>
       <!-- TODO: conteúdo principal -->
+      <form action="cliente.php">
+        <div><label for="cliente">Nome do cliente</label></div>
+        <div>
+          <input type="text" name="cliente" id="cliente" placeholder="Digite aqui">
+          <input type="submit" value="Pesquisar">
+        </div>
+      </form>
     </main>
     
     <footer>
