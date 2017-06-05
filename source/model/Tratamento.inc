@@ -25,8 +25,8 @@ class Tratamento{
   public function __construct(
     string $nome,
     string $endereco,
-  	integer $inicio,
-  	integer $fim
+    integer $inicio,
+    integer $fim
   ){
     // Manter atributos
     $this->dat_ini = $inicio;

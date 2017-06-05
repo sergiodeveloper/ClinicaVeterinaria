@@ -1,5 +1,8 @@
 <?php
 
+// Incluir dependências
+require_once "Animal.inc";
+
 /**
  * Classe cliente
  */
@@ -36,6 +39,12 @@ class Cliente{
   private $email_cli;
   
   /**
+   * Animais do cliente
+   * @type Animal[] Lista de animais
+   */
+  private $animais = array();
+  
+  /**
    * Construtor da classe Cliente
    * @param {string} $nome     Nome do cliente
    * @param {string} $endereco Endereço do cliente
@@ -46,9 +55,9 @@ class Cliente{
   public function __construct(
     string $nome,
     string $endereco,
-	string $telefone,
-	integer $cep,
-	string $email
+    string $telefone,
+    integer $cep,
+    string $email
   ){
     // Manter atributos
     $this->nom_cli = $nome;
@@ -58,4 +67,20 @@ class Cliente{
     $this->email_cli = $email;
   }
   
+  /**
+   * Adicionar animal à lista
+   * @param Animal $animal
+   */
+  public function adicionarAnimal(Animal $animal): void{
+    // Adicionar no array (push)
+    $this->animais[] = $animal;
+  }
+  
+  /**
+   * Obter lista de animais
+   * @return Animal[]
+   */
+  public function obterAnimais(): array{
+    return $this->animais;
+  }
 }
