@@ -27,8 +27,8 @@
     </header>
     
     <main>
-      <!-- TODO: conteúdo principal -->
-      <form action="cliente.php">
+      <!-- Conteúdo principal -->
+      <form action="cliente.php" method="GET">
         <div><label for="cliente">Nome do cliente</label></div>
         <div>
           <input type="text" name="cliente" id="cliente" placeholder="Digite aqui">

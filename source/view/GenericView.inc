@@ -23,7 +23,7 @@ abstract class GenericView{
    */
   public function __construct(string $templateLocation){
     // Manter atributos
-    $this->template = $templateLocation;
+    $this->templateLocation = $templateLocation;
   }
   
   
@@ -62,6 +62,7 @@ abstract class GenericView{
     ob_start();
     require $this->templateLocation;
     $source = ob_get_contents();
+    ob_end_clean();
     
     return $source;
   }
