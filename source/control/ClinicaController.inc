@@ -1,5 +1,9 @@
 <?php
 
+// Incluir dependências
+require_once "../model/ClienteDAO.inc";
+require_once "../model/AnimalDAO.inc";
+
 /**
  * Classe de controle da Clínica Veterinária
  */
@@ -10,6 +14,32 @@ class ClinicaController{
    */
   public function __construct(){
     
+  }
+  
+  /**
+   * Pesquisar cliente no sistema
+   * @param {string} $nome
+   * @return Cliente
+   * @throws PDOException Caso haja erro de banco de dados
+   */
+  public function pesquisarCliente(string $nome): Cliente{
+    
+    // Encontrar cliente
+    $clienteDao = new ClienteDAO();
+    $cliente = $clienteDao->consultarPorNome($nome);
+    
+    return $cliente;
+  }
+  
+  /**
+   * Pesquisar animais de um determinado cliente
+   * @return Animal[] Lista de animais
+   */
+  public function pesquisarAnimais(Cliente $cliente): array{
+    $animalDao = new AnimalDAO();
+    $animais = $animalDao->obterAnimais($cliente);
+    
+    return $animais;
   }
   
 }

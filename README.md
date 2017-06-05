@@ -1,2 +1,2 @@
 # ClinicaVeterinaria
-Projeto escolar em PHP de uma clínica veterinária implementando DAO e MVC
+Projeto escolar em PHP do sistema de uma clínica veterinária implementando DAO e MVC
