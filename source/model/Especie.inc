@@ -17,7 +17,7 @@ class Especie{
    * @param {string} $nome  Nome da espécie
    */
   public function __construct(
-    string $nome
+    $nome
   ){
     // Manter atributos
     $this->nom_esp = $nome;
@@ -27,7 +27,7 @@ class Especie{
    * Obter nome da espécie
    * @return string
    */
-  public function getNome(): string{
+  public function getNome(){
     return $this->nom_esp;
   }
   

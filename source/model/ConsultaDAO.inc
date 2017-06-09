@@ -21,7 +21,7 @@ class ConsultaDAO extends GenericDAO{
    * Obter todas as consultas de um determinado tratamento
    * @return string
    */
-  public function Lis_Con(): string{
+  public function Lis_Con(){
     // TODO
   }
   
@@ -29,7 +29,7 @@ class ConsultaDAO extends GenericDAO{
    * Obter uma consulta específica
    * @return string
    */
-  public function Ver_Con(): string{
+  public function Ver_Con(){
     // TODO
   }
   
@@ -37,7 +37,7 @@ class ConsultaDAO extends GenericDAO{
    * Registrar consulta no banco de dados
    * @return int
    */
-  public function Reg_Con(): int{
+  public function Reg_Con(){
     // TODO
   }
   

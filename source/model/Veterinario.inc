@@ -39,9 +39,9 @@ class Veterinario{
    * @param {string} $telefone Telefone do veterinário
    */
   public function __construct(
-    string $nome,
-    string $endereco,
-    string $telefone
+    $nome,
+    $endereco,
+    $telefone
   ){
     // Manter atributos
     $this->nom_vet = $nome;
@@ -54,7 +54,7 @@ class Veterinario{
    * Adicionar consulta à lista
    * @param Consulta $consulta
    */
-  public function adicionarConsulta(Consulta $consulta){
+  public function adicionarConsulta($consulta){
     // Adicionar no array (push)
     $this->consultas[] = $consulta;
   }
@@ -63,7 +63,7 @@ class Veterinario{
    * Obter lista de consultas
    * @return Consulta[]
    */
-  public function obterConsultas(): array{
+  public function obterConsultas(){
     return $this->consultas;
   }
   

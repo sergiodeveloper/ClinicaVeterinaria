@@ -21,7 +21,7 @@ abstract class GenericView{
    * Construtor da classe GenericView
    * @param {string} $templateLocation Endereço do arquivo template desta view
    */
-  public function __construct(string $templateLocation){
+  public function __construct($templateLocation){
     // Manter atributos
     $this->templateLocation = $templateLocation;
   }
@@ -32,7 +32,7 @@ abstract class GenericView{
    * @param {string} $name Nome da variável
    * @return any Qualquer tipo de dado que estiver na lista
    */
-  protected function getVariable(string $name){
+  protected function getVariable($name){
     return $this->variables[$name];
   }
   
@@ -41,7 +41,7 @@ abstract class GenericView{
    * @param {string} $name  Nome da variável
    * @param {any}    $value
    */
-  protected function addVariable(string $name, $value){
+  protected function addVariable($name, $value){
     $this->variables[$name] = $value;
   }
   
@@ -49,7 +49,7 @@ abstract class GenericView{
    * Remover variável da view
    * @param {string} $name Nome da variável
    */
-  protected function removeVariable(string $name){
+  protected function removeVariable($name){
     unset($this->variables[$name]);
   }
   
@@ -57,7 +57,7 @@ abstract class GenericView{
    * Obter código fonte HTML desta view
    * @return string
    */
-  public function getSourceCode(): string{
+  public function getSourceCode(){
     // Capturar saída do template
     ob_start();
     require $this->templateLocation;

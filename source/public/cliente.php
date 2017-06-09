@@ -19,6 +19,10 @@ function listarAnimais(){
   $control = new ClinicaController();
   $cliente = $control->pesquisarCliente($nome);
   
+  if($cliente == null){
+    return "Cliente não encontrado.";
+  }
+
   // Encontrar seus animais
   $animais = $control->pesquisarAnimais($cliente);
   

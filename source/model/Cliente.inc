@@ -53,11 +53,11 @@ class Cliente{
    * @param {string} $email    Email do cliente
    */
   public function __construct(
-    string $nome,
-    string $endereco,
-    string $telefone,
-    int $cep,
-    string $email
+    $nome,
+    $endereco,
+    $telefone,
+    $cep,
+    $email
   ){
     // Manter atributos
     $this->nom_cli = $nome;
@@ -71,7 +71,7 @@ class Cliente{
    * Adicionar animal à lista
    * @param Animal $animal
    */
-  public function adicionarAnimal(Animal $animal){
+  public function adicionarAnimal($animal){
     // Adicionar no array (push)
     $this->animais[] = $animal;
   }
@@ -80,7 +80,7 @@ class Cliente{
    * Obter lista de animais
    * @return Animal[]
    */
-  public function obterAnimais(): array{
+  public function obterAnimais(){
     return $this->animais;
   }
   
@@ -88,7 +88,7 @@ class Cliente{
    * Obter nome do cliente
    * @return string
    */
-  public function getNome(): string{
+  public function getNome(){
     return $this->nom_cli;
   }
   
@@ -96,7 +96,7 @@ class Cliente{
    * Obter endereço do cliente
    * @return string
    */
-  public function getEndereco(): string{
+  public function getEndereco(){
     return $this->end_cli;
   }
   
@@ -104,7 +104,7 @@ class Cliente{
    * Obter cep do cliente
    * @return int
    */
-  public function getCep(): int{
+  public function getCep(){
     return $this->cep_cli;
   }
   
@@ -112,7 +112,7 @@ class Cliente{
    * Obter email do cliente
    * @return string
    */
-  public function getEmail(): string{
+  public function getEmail(){
     return $this->email_cli;
   }
   
@@ -120,7 +120,7 @@ class Cliente{
    * Obter telefone do cliente
    * @return string
    */
-  public function getTelefone(): string{
+  public function getTelefone(){
     return $this->tel_cli;
   }
 }

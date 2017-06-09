@@ -50,8 +50,40 @@
         </div>
         <?php
           }
+          if(count($this->getVariable("animais")) == 0){
+            echo "Nenhum animal encontrado.";
+          }
         ?>
+        <p>Cadastre seus animais no formulário abaixo:</p>
       </div>
+
+      <h2>Cadastro de animais:</h2>
+      <form name="cadastro" action="cadastroAnimal.php" method="POST">
+        <div><label for="nome">Nome:</label></div>
+        <div>
+          <input type="text" name="nome" id="nome" placeholder="Digite aqui">
+        </div>
+
+        <div><label for="idade">Idade:</label></div>
+        <div>
+          <input type="text" name="idade" id="idade" placeholder="Digite aqui">
+        </div>
+
+        <div><label for="sexo">Sexo:</label></div>
+        <div>
+          <input type="text" name="sexo" id="sexo" placeholder="Digite aqui">
+        </div>
+
+        <div><label for="especie">Espécie:</label></div>
+        <div>
+          <input type="text" name="especie" id="especie" placeholder="Digite aqui">
+        </div><br>
+          <input type="hidden" name="dono" id="dono" value="<?php echo $this->getVariable('cliente')->getNome(); ?>">
+        <div>  
+          <input type="submit" value="Cadastrar">
+        </div>
+      </form>
+
     </main>
     
     <footer>

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /**
  * Métodos comuns aos objetos DAO do projeto Clínica Veterinária
  */
@@ -35,7 +35,7 @@ abstract class GenericDAO{
    * @param {string} $query Consulta a ser preparada
    * @throws PDOException Caso a consulta esteja mal formatada
    */
-  public function prepare(string $query): PDOStatement{
+  public function prepare(string $query){
     return GenericDAO::$connection->prepare($query);
   }
   
