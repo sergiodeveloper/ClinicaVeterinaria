@@ -48,10 +48,10 @@ class Animal{
    * @param {Especie} $especie Espécie do animal
    */
   public function __construct(
-    string $nome,
-    int $idade,
-    int $sexo,
-    Especie $especie
+    $nome,
+    $idade,
+    $sexo,
+    $especie
   ){
     // Manter atributos
     $this->nome_animal = $nome;
@@ -66,7 +66,7 @@ class Animal{
    * Adicionar tratamento à lista
    * @param Tratamento $tratamento
    */
-  public function adicionarTratamento(Tratamento $tratamento){
+  public function adicionarTratamento($tratamento){
     // Adicionar no array (push)
     $this->tratamentos[] = $tratamento;
   }
@@ -75,7 +75,7 @@ class Animal{
    * Obter lista de tratamentos
    * @return Animal[]
    */
-  public function obterTratamentos(): array{
+  public function obterTratamentos(){
     return $this->tratamentos;
   }
   
@@ -83,7 +83,7 @@ class Animal{
    * Obter nome do animal
    * @return string
    */
-  public function getNome(): string{
+  public function getNome(){
     return $this->nome_animal;
   }
   
@@ -91,7 +91,7 @@ class Animal{
    * Obter idade do animal
    * @return int
    */
-  public function getIdade(): int{
+  public function getIdade(){
     return $this->idade_animal;
   }
   
@@ -99,7 +99,7 @@ class Animal{
    * Obter nome do animal
    * @return string
    */
-  public function getSexo(): int{
+  public function getSexo(){
     return $this->sexo_animal;
   }
   
@@ -107,7 +107,7 @@ class Animal{
    * Obter espécie
    * @return Especie
    */
-  public function getEspecie(): Especie{
+  public function getEspecie(){
     return $this->especie;
   }
 }

@@ -33,8 +33,8 @@ class Consulta{
    * @param {string}  $historico Documentação histórica da consulta
    */
   public function __construct(
-    int $data,
-    string $historico
+    $data,
+    $historico
   ){
     // Manter atributos
     $this->dat_con = $data;
@@ -46,7 +46,7 @@ class Consulta{
    * Adicionar exame à lista
    * @param Exame $exame
    */
-  public function adicionarExame(Exame $exame){
+  public function adicionarExame($exame){
     // Adicionar no array (push)
     $this->exames[] = $exame;
   }
@@ -55,7 +55,7 @@ class Consulta{
    * Obter lista de exames
    * @return Exame[]
    */
-  public function obterExames(): array{
+  public function obterExames(){
     return $this->exames;
   }
   

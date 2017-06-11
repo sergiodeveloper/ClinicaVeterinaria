@@ -32,10 +32,10 @@ class Tratamento{
    * @param {int} $fim    Data de fim em timestamp
    */
   public function __construct(
-    string $nome,
-    string $endereco,
-    int    $inicio,
-    int    $fim
+    $nome,
+    $endereco,
+    $inicio,
+    $fim
   ){
     // Manter atributos
     $this->dat_ini = $inicio;
@@ -47,7 +47,7 @@ class Tratamento{
    * Adicionar consulta à lista
    * @param Consulta $consulta
    */
-  public function adicionarConsulta(Consulta $consulta){
+  public function adicionarConsulta($consulta){
     // Adicionar no array (push)
     $this->consultas[] = $consulta;
   }
@@ -56,7 +56,7 @@ class Tratamento{
    * Obter lista de consultas
    * @return Consulta[]
    */
-  public function obterConsultas(): array{
+  public function obterConsultas(){
     return $this->consultas;
   }
 }

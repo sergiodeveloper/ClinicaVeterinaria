@@ -16,21 +16,41 @@ class ClienteDAO extends GenericDAO{
   public function __construct(){
     // Chamar construtor da classe pai
     parent::__construct();
+
+    if(!isset($_SESSION['clientes'])){
+
+      $_SESSION['clientes'] = array();
+    }
+
   }
   
   /**
    * Registrar cliente no banco de dados
    * @return int
    */
-  public function Reg_Cli(): int{
-    // TODO
+  public function Reg_Cli(
+    $nome,
+    $endereco,
+    $telefone,
+    $cep,
+    $email 
+  ){
+    //TODO mudar para banco
+
+    $_SESSION['clientes'][] = new Cliente(
+      $nome,
+      $endereco,
+      $telefone,
+      $cep,
+      $email
+    );
   }
   
   /**
    * Consultar cliente no banco de dados
    * @return string
    */
-  public function Con_Cli(): string{
+  public function Con_Cli(){
     // TODO
   }
   
@@ -39,17 +59,17 @@ class ClienteDAO extends GenericDAO{
    * @param {string} $nome Nome do cliente
    * @return Cliente
    */
-  public function consultarPorNome(string $nome): Cliente{
+  public function consultarPorNome($nome){
     // TODO usar banco de dados real
-    
-    // Retornar cliente fictício
-    return new Cliente(
-      $nome,
-      "Grécia - SP, Havaí",
-      "-55 (12) 345-5678",
-      56203499,
-      "$nome@email.com"
-    );
+
+    foreach($_SESSION['clientes'] as $i => $cliente){
+      if($cliente->getNome() == $nome){
+        return $cliente;
+      }
+    }
+
+    return null;
+  
   }
   
 }

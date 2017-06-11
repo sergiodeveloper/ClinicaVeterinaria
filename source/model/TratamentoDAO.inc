@@ -21,7 +21,7 @@ class TratamentoDAO extends GenericDAO{
    * Obter os tratamentos feitos por um determinado animal
    * @return string
    */
-  public function Vis_Trat(): string{
+  public function Vis_Trat(){
     // TODO
   }
   
@@ -29,7 +29,7 @@ class TratamentoDAO extends GenericDAO{
    * Consultar tratamento no banco de dados
    * @return string
    */
-  public function Con_Trat(): string{
+  public function Con_Trat(){
     // TODO
   }
   
@@ -37,7 +37,7 @@ class TratamentoDAO extends GenericDAO{
    * Registrar tratamento no banco de dados
    * @return int
    */
-  public function Reg_Trat(): int{
+  public function Reg_Trat(){
     // TODO
   }
   

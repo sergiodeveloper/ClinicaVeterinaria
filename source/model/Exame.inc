@@ -17,7 +17,7 @@ class Exame{
    * @param {string} $descricao Descrição do exame
    */
   public function __construct(
-    string $descricao
+    $descricao
   ){
     // Manter atributos
     $this->des_exame = $descricao;

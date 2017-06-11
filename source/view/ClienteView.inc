@@ -13,7 +13,7 @@ class ClienteView extends GenericView{
    * @param Cliente  $cliente
    * @param Animal[] $animais
    */
-  public function __construct(Cliente $cliente, array $animais){
+  public function __construct($cliente,$animais){
     // Chamar construtor da classe pai
     parent::__construct("template/cliente.inc");
     
