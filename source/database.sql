@@ -1,6 +1,6 @@
 
 
-use database clinica;
+use clinica;
 
 drop table if exists Consulta;
 drop table if exists Exame;
