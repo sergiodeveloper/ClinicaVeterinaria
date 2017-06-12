@@ -11,8 +11,9 @@ drop table if exists Especie;
 drop table if exists Cliente;
 
 create table Cliente (
-  codigo int not null,
+  codigo int not null auto_increment,
   nome char(255) not null,
+  endereco char(255) not null,
   telefone char(255) not null,
   cep char(255) not null,
   email char(255) not null,
@@ -20,14 +21,14 @@ create table Cliente (
 ) character set utf8 collate utf8_unicode_ci;
 
 create table Especie (
-  codigo int not null,
+  codigo int not null auto_increment,
   nome char(255) not null,
   primary key (codigo),
   unique (nome)
 ) character set utf8 collate utf8_unicode_ci;
 
 create table Animal (
-  codigo int not null,
+  codigo int not null auto_increment,
   nome char(255) not null,
   idade int not null,
   sexo char(1) not null,
@@ -39,7 +40,7 @@ create table Animal (
 ) character set utf8 collate utf8_unicode_ci;
 
 create table Veterinario (
-  codigo int not null,
+  codigo int not null auto_increment,
   nome char(255) not null,
   endereco char(255) not null,
   telefone char(255) not null,
@@ -47,7 +48,7 @@ create table Veterinario (
 ) character set utf8 collate utf8_unicode_ci;
 
 create table Tratamento (
-  codigo int not null,
+  codigo int not null auto_increment,
   inicio int not null,
   fim int null,
   animal int not null,
@@ -56,7 +57,7 @@ create table Tratamento (
 ) character set utf8 collate utf8_unicode_ci;
 
 create table Consulta (
-  codigo int not null,
+  codigo int not null auto_increment,
   `data` int not null,
   historico text not null,
   veterinario int not null,
@@ -67,7 +68,7 @@ create table Consulta (
 ) character set utf8 collate utf8_unicode_ci;
 
 create table Exame (
-  codigo int not null,
+  codigo int not null auto_increment,
   descricao text not null,
   consulta int not null,
   primary key (codigo),

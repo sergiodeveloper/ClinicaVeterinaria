@@ -2,6 +2,7 @@
 
 // Incluir dependências
 require_once "GenericDAO.inc";
+require_once "EspecieDAO.inc";
 require_once "Especie.inc";
 require_once "Animal.inc";
 
@@ -17,10 +18,6 @@ class AnimalDAO extends GenericDAO{
   public function __construct(){
     // Chamar construtor da classe pai
     parent::__construct();
-
-    if(!isset($_SESSION['animais'])){
-      $_SESSION['animais'] = array();
-    }
   }
   
   /**
@@ -35,7 +32,9 @@ class AnimalDAO extends GenericDAO{
   
   /**
    * Registrar animal no banco de dados
+   * @param Especie $especie
    * @return int
+   * @throws PDOException
    */
   public function Reg_Ani(
     $nome,
@@ -44,22 +43,21 @@ class AnimalDAO extends GenericDAO{
     $especie,
     $dono
   ){
-    //TODO mudar para banco
-
+    $query = $this->prepare(
+      "INSERT INTO Animal (nome, idade, sexo, especie, dono)
+            VALUES (?, ?, ?, ?, ?)"
+    );
     
-
-    $animal = new Animal(
+    if($query == false) throw new PDOException("Erro na consulta");
+    
+    $query->execute([$nome, $idade, $sexo, $especie->getCodigo(), $dono->getCodigo()]);
+    
+    return new Animal(
       $nome,
       $idade,
       $sexo,
       $especie
     );
-
-    $animal->dono = $dono;
-
-    $_SESSION['animais'][] = $animal;
-
-    return $animal;
   }
 
   /**
@@ -68,16 +66,33 @@ class AnimalDAO extends GenericDAO{
    * @return Animal[]
    */
   public function obterAnimais($dono){
-    // TODO consultar em banco de dados
     
-    // Retornar lista de animais
-    $animais = array();
+    $query = $this->prepare(
+      "SELECT codigo, nome, endereco, telefone, cep, email
+         FROM Cliente
+        WHERE nome = ?"
+    );
     
-    foreach($_SESSION['animais'] as $i => $animal){
-      if($animal->dono == $dono)
-        $animais[] = $animal;
+    if($query === false) throw new PDOException("Erro na consulta");
+    
+    $query->execute([$nome]);
+    
+    $result = $query->fetch();
+    
+    if($result === false) return null;
+    
+    $animais = [];
+    
+    foreach($results as $result){
+      return new Animal(
+        $result["codigo"],
+        $result["nome"],
+        $result["idade"],
+        $result["sexo"],
+        $result["especie"]
+      );
     }
-
+    
     return $animais;
   }
   

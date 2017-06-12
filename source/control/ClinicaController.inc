@@ -46,14 +46,17 @@ class ClinicaController{
 
   /**
    * Cadastrar animal no sistema
-   * @param {string} $nome,$idade,$sexo,$especie
+   * @param {string} $nome
+   * @param int $idade
+   * @param int $sexo
+   * @param Especie $especie
    * @throws PDOException Caso haja erro de banco de dados
    */
   public function cadastrarAnimal($nome,$idade,$sexo,$especie,$dono){
     
     // Cadastrar animal
     $animalDAO = new AnimalDAO();
-    $animalDAO->Reg_Ani($nome,$idade,$sexo,$especie,$dono);
+    $animalDAO->Reg_Ani($nome, $idade, $sexo, $especie, $dono);
   }
 
   /**
