@@ -22,7 +22,8 @@ create table Cliente (
 create table Especie (
   codigo int not null,
   nome char(255) not null,
-  primary key (codigo)
+  primary key (codigo),
+  unique (nome)
 );
 
 create table Animal (
@@ -56,7 +57,7 @@ create table Tratamento (
 
 create table Consulta (
   codigo int not null,
-  data int not null,
+  `data` int not null,
   historico text not null,
   veterinario int not null,
   tratamento int not null,
