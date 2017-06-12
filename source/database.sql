@@ -64,7 +64,7 @@ create table Consulta (
   primary key (codigo),
   foreign key (veterinario) references Veterinario(codigo),
   foreign key (tratamento) references Tratamento(codigo)
-)
+);
 
 create table Exame (
   codigo int not null,
@@ -72,7 +72,7 @@ create table Exame (
   consulta int not null,
   primary key (codigo),
   foreign key (consulta) references Consulta(codigo)
-)
+);
 
 
 
