@@ -32,8 +32,6 @@ class Tratamento{
    * @param {int} $fim    Data de fim em timestamp
    */
   public function __construct(
-    $nome,
-    $endereco,
     $inicio,
     $fim
   ){
