@@ -1,5 +1,70 @@
 
 /* Theme for project Clínica Veterinária */
 
-h1{
-}
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand+SC');
+
+body {
+  text-align: center;
+  font-family: 'Patrick Hand SC', cursive;}
+
+section {
+  background-color: white;
+  margin: 45px;
+  display: block;
+  border-radius: 10px;
+  padding: 25px;}
+
+  section h1,
+  section h2 {
+    margin: 0 20px 14px;}
+
+.field{
+  display: inline-block;
+  text-align: left;}
+
+  .field .label{
+    transform: rotate(-7deg) translateY(-6px);}
+
+  .field input[type='text'],
+  .field input[type='password'],
+  .field input[type='email'],
+  .field input[type='number']{
+    border: 1px solid #4d4d4d;
+    padding: 5px;
+    border-radius: 50%;
+    text-align: center;
+    height: 40px;
+    box-sizing: border-box;}
+    
+    .field input[type='text'],
+    .field input[type='password'],
+    .field input[type='email'],
+    .field input[type='number']{
+      border-color: black;
+      background-color: #ede7da;}
+
+  .field input[type='button'],
+  .field input[type='submit'],
+  .field input[type='reset'],
+  .field button{
+    min-width: 40px;
+    height: 40px;
+    padding: 0;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #4d4d4d;
+    margin: 0 0 0 10px;
+    box-sizing: border-box;
+    background-color: #eee;
+    cursor: pointer;}
+ 
+    .field input[type='button']:hover,
+    .field input[type='submit']:hover,
+    .field input[type='reset']:hover,
+    .field button:hover{
+      background-color: #1aa2c8 !important;
+      border-color: black;
+      color: white;}
+
+
