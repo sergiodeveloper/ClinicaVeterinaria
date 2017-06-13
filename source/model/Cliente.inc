@@ -131,4 +131,12 @@ class Cliente{
   public function getTelefone(){
     return $this->tel_cli;
   }
+  
+  /**
+   * Obter código do cliente
+   * @return int
+   */
+  public function getCodigo(){
+    return $this->codigo;
+  }
 }

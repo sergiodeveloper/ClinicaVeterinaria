@@ -66,9 +66,14 @@ class ClinicaController{
    */
   public function cadastrarEspecie($nome){
     
-    // Cadastrar especie
     $especieDAO = new EspecieDAO();
-    $especie = $especieDAO->cadastrarEspecie($nome);
+    
+    // Ver se espécie já está cadastrada
+    $especie = $especieDAO->encontrarEspeciePorNome($nome);
+    if($especie == null){
+      // Cadastrar especie
+      $especie = $especieDAO->cadastrarEspecie($nome);
+    }
 
     return $especie;
   }

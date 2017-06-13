@@ -40,7 +40,7 @@
         <h2>Animais</h2>
         <!-- Informações dos animais -->
         <?php 
-          foreach($this->getVariable("animais") as $i => $animal){
+          foreach((array) $this->getVariable("animais") as $i => $animal){
         ?>
         <div>
           Animal - Nome: <?php echo $animal->getNome(); ?>,

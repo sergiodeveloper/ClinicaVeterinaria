@@ -25,9 +25,7 @@ class AnimalDAO extends GenericDAO{
    * @return string
    */
   public function Vis_Animal($cliente){
-    //foreach($_SESSION['animais'] as $i => $animal){
-
-    //}
+    // TODO
   }
   
   /**
@@ -50,13 +48,20 @@ class AnimalDAO extends GenericDAO{
     
     if($query == false) throw new PDOException("Erro na consulta");
     
-    $query->execute([$nome, $idade, $sexo, $especie->getCodigo(), $dono->getCodigo()]);
+    $query->execute([
+      (string) $nome,
+      (int) $idade,
+      (int) $sexo,
+      $especie->getCodigo(),
+      $dono->getCodigo()
+    ]);
     
     return new Animal(
-      $nome,
-      $idade,
-      $sexo,
-      $especie
+      $this->lastInsertId(),
+      (string) $nome,
+      (int) $idade,
+      (int) $sexo,
+      $especie->getCodigo()
     );
   }
 
@@ -68,28 +73,31 @@ class AnimalDAO extends GenericDAO{
   public function obterAnimais($dono){
     
     $query = $this->prepare(
-      "SELECT codigo, nome, endereco, telefone, cep, email
-         FROM Cliente
-        WHERE nome = ?"
+      "SELECT codigo, nome, idade, sexo, especie
+         FROM Animal
+        WHERE dono = ?"
     );
     
     if($query === false) throw new PDOException("Erro na consulta");
     
-    $query->execute([$nome]);
+    $query->execute([$dono->getCodigo()]);
     
-    $result = $query->fetch();
+    $results = $query->fetchAll();
     
-    if($result === false) return null;
+    if($results === false) return null;
     
     $animais = [];
     
     foreach($results as $result){
-      return new Animal(
+      $especieDao = new EspecieDAO();
+      $especie = $especieDao->encontrarEspeciePorCodigo($result["especie"]);
+      
+      $animais[] = new Animal(
         $result["codigo"],
         $result["nome"],
         $result["idade"],
         $result["sexo"],
-        $result["especie"]
+        $especie
       );
     }
     

@@ -9,6 +9,12 @@ require_once "Consulta.inc";
 class Veterinario{
   
   /**
+   * Código do veterinário
+   * @type int
+   */
+  private $codigo;
+  
+  /**
    * Nome do veterinário
    * @type string
    */
@@ -39,11 +45,13 @@ class Veterinario{
    * @param {string} $telefone Telefone do veterinário
    */
   public function __construct(
+    $codigo,
     $nome,
     $endereco,
     $telefone
   ){
     // Manter atributos
+    $this->codigo = $codigo;
     $this->nom_vet = $nome;
     $this->end_vet = $endereco;
     $this->telefone = $telefone;

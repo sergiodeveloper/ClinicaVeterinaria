@@ -16,17 +16,11 @@ class ClienteDAO extends GenericDAO{
   public function __construct(){
     // Chamar construtor da classe pai
     parent::__construct();
-
-    if(!isset($_SESSION['clientes'])){
-
-      $_SESSION['clientes'] = array();
-    }
-
   }
   
   /**
    * Registrar cliente no banco de dados
-   * @return int
+   * @return {Cliente} Cliente cadastrado
    */
   public function Reg_Cli(
     $nome,
@@ -45,7 +39,7 @@ class ClienteDAO extends GenericDAO{
     
     $query->execute([$nome, $endereco, $telefone, $cep, $email]);
     
-    $_SESSION['clientes'][] = new Cliente(
+    return new Cliente(
       $this->lastInsertId(), //Código
       $nome,
       $endereco,
