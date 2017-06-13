@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <!-- Definir atributos da página -->
-    <meta charset="utf-8" />
-    <meta name="author" content="" />
-    <meta name="description" content="Projeto escolar de uma clínica veterinária utilizando padrão DAO e MVC" />
-    <meta name="keywords" content="clinica,veterinaria" />
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="description" content="Projeto escolar de uma clínica veterinária utilizando padrão DAO e MVC">
+    <meta name="keywords" content="clinica,veterinaria">
     <title>Clínica Veterinária</title>
     
     <!-- Importar estilos e fontes -->
-    <link rel="stylesheet" type="text/css" href="theme.css" />
+    <link rel="stylesheet" type="text/css" href="theme.css">
     
     <!-- Importar scripts do projeto -->
     <!-- ... -->
@@ -28,45 +28,60 @@
     
     <main>
       <!-- Conteúdo principal -->
-      <h2>Consulta de clientes:</h2>
-      <form name="consulta" action="cliente.php" method="POST">
-        <div><label for="cliente">Nome do cliente</label></div>
-        <div>
-          <input type="text" name="cliente" id="cliente" placeholder="Digite aqui">
-          <input type="submit" value="Pesquisar">
-        </div>
-      </form>
-    <hr>
-      <h2>Cadastro de clientes:</h2>
-      <form name="cadastro" action="cadastroCliente.php" method="POST">
-        <div><label for="nome">Nome:</label></div>
-        <div>
-          <input type="text" name="nome" id="nome" placeholder="Digite aqui">
-        </div>
-
-        <div><label for="endereco">Endereço:</label></div>
-        <div>
-          <input type="text" name="endereco" id="endereco" placeholder="Digite aqui">
-        </div>
-
-        <div><label for="tel">Telefone:</label></div>
-        <div>
-          <input type="text" name="tel" id="tel" placeholder="Digite aqui">
-        </div>
-
-        <div><label for="CEP">CEP:</label></div>
-        <div>
-          <input type="text" name="CEP" id="CEP" placeholder="Digite aqui">
-        </div>
-
-        <div><label for="email">E-mail:</label></div>
-        <div>
-          <input type="text" name="email" id="email" placeholder="Digite aqui">
-        </div><br>
-        <div>  
-          <input type="submit" value="Cadastrar">
-        </div>
-      </form>
+      <section>
+        <h2>Consulta de clientes:</h2>
+        <form name="consulta" action="cliente.php" method="POST">
+          <field>
+            <label for="cliente">Nome do cliente</label></div>
+            <div>
+              <input name="cliente" id="cliente" placeholder="Digite aqui" type="text">
+              <input value="Pesquisar" type="submit">
+            </div>
+          </field>
+        </form>
+      </section>
+      <section>
+        <h2>Cadastro de clientes:</h2>
+        <form name="cadastro" action="cadastroCliente.php" method="POST">
+          <field>
+            <label for="nome">Nome:</label></div>
+            <div>
+              <input name="nome" id="nome" placeholder="Digite aqui" type="text">
+            </div>
+          </field>
+          <br>
+          <field>
+            <label for="endereco">Endereço:</label></div>
+            <div>
+              <input name="endereco" id="endereco" placeholder="Digite aqui" type="text">
+            </div>
+          </field>
+          <br>
+          <field>
+            <label for="tel">Telefone:</label></div>
+            <div>
+              <input name="tel" id="tel" placeholder="Digite aqui" type="text">
+            </div>
+          </field>
+          <br>
+          <field>
+            <label for="CEP">CEP:</label></div>
+            <div>
+              <input name="CEP" id="CEP" placeholder="Digite aqui" type="text">
+            </div>
+          </field>
+          <br>
+          <field>
+            <label for="email">E-mail:</label></div>
+            <div>
+              <input name="email" id="email" placeholder="Digite aqui" type="text">
+            </div>
+          </field>
+          <div>  
+            <input value="Cadastrar" type="submit">
+          </div>
+        </form>
+      </section>
 
     </main>
 
