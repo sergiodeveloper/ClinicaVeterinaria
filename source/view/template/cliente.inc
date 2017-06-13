@@ -28,15 +28,17 @@
     
     <main>
       <!-- Conteúdo principal -->
-      <div>
-        <!-- Informacoes do cliente -->
-        Endereço: <?php echo $this->getVariable("cliente")->getEndereco(); ?>,
-        Telefone: <?php echo $this->getVariable("cliente")->getTelefone(); ?>,
-        CEP: <?php echo $this->getVariable("cliente")->getCep(); ?>,
-        Email: <?php echo $this->getVariable("cliente")->getEmail(); ?>
-      </div>
+      <section>
+        <div>
+          <!-- Informacoes do cliente -->
+          Endereço: <?php echo $this->getVariable("cliente")->getEndereco(); ?>,
+          Telefone: <?php echo $this->getVariable("cliente")->getTelefone(); ?>,
+          CEP: <?php echo $this->getVariable("cliente")->getCep(); ?>,
+          Email: <?php echo $this->getVariable("cliente")->getEmail(); ?>
+        </div>
+      </section>
       
-      <div>
+      <section>
         <h2>Animais</h2>
         <!-- Informações dos animais -->
         <?php 
@@ -55,35 +57,45 @@
           }
         ?>
         <p>Cadastre seus animais no formulário abaixo:</p>
-      </div>
+      </section>
 
-      <h2>Cadastro de animais:</h2>
-      <form name="cadastro" action="cadastroAnimal.php" method="POST">
-        <div><label for="nome">Nome:</label></div>
-        <div>
-          <input type="text" name="nome" id="nome" placeholder="Digite aqui">
-        </div>
-
-        <div><label for="idade">Idade:</label></div>
-        <div>
-          <input type="text" name="idade" id="idade" placeholder="Digite aqui">
-        </div>
-
-        <div><label for="sexo">Sexo:</label></div>
-        <div>
-          <input type="text" name="sexo" id="sexo" placeholder="Digite aqui">
-        </div>
-
-        <div><label for="especie">Espécie:</label></div>
-        <div>
-          <input type="text" name="especie" id="especie" placeholder="Digite aqui">
-        </div><br>
+      <section>
+        <h2>Cadastro de animais:</h2>
+        <form name="cadastro" action="cadastroAnimal.php" method="POST">
+          <field>
+            <label for="nome">Nome:</label>
+            <div>
+              <input type="text" name="nome" id="nome" placeholder="Digite aqui">
+            </div>
+          </field>
+          <br>
+          <field>
+            <label for="idade">Idade:</label>
+            <div>
+              <input type="text" name="idade" id="idade" placeholder="Digite aqui">
+            </div>
+          </field>
+          <br>
+          <field>
+            <label for="sexo">Sexo:</label>
+            <div>
+              <input type="text" name="sexo" id="sexo" placeholder="Digite aqui">
+            </div>
+          </field>
+          <br>
+          <field>
+            <label for="especie">Espécie:</label>
+            <div>
+              <input type="text" name="especie" id="especie" placeholder="Digite aqui">
+            </div>
+          </field>
+          <br>
           <input type="hidden" name="dono" id="dono" value="<?php echo $this->getVariable('cliente')->getNome(); ?>">
-        <div>  
-          <input type="submit" value="Cadastrar">
-        </div>
-      </form>
-
+          <field>
+            <input type="submit" value="Cadastrar">
+          </field>
+        </form>
+      </section>
     </main>
     
     <footer>
