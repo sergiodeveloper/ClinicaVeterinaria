@@ -41,7 +41,7 @@ function CadastrarCliente(){
   try{
     $control->cadastrarAnimal($nome, $idade, $sexo, $especie, $cliente);
   }
-  catch(PDOException $exception){
+  catch(\PDOException $exception){
     return $exception;
     return "Houve um erro, tente novamente";
   }

@@ -38,7 +38,7 @@ abstract class GenericDAO{
    * @param {string} $query Consulta a ser preparada
    * @throws PDOException Caso a consulta esteja mal formatada
    */
-  public function prepare(string $query){
+  public function prepare($query){
     return GenericDAO::$connection->prepare($query);
   }
   
