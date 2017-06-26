@@ -11,6 +11,12 @@ class Animal{
   
   
   /**
+   * Código do animal
+   * @type string
+   */
+  private $codigo;
+  
+  /**
    * Nome do animal
    * @type string
    */
@@ -42,18 +48,21 @@ class Animal{
   
   /**
    * Construtor da classe Animal
+   * @param {int}     $codigo  Código do animal
    * @param {string}  $nome    Nome do animal
    * @param {int}     $idade   Idade do animal
    * @param {int}     $sexo    Sexo do animal (0: Masculino, 1: Feminino)
    * @param {Especie} $especie Espécie do animal
    */
   public function __construct(
+    $codigo,
     $nome,
     $idade,
     $sexo,
     $especie
   ){
     // Manter atributos
+    $this->codigo = $codigo;
     $this->nome_animal = $nome;
     $this->idade_animal = $idade;
     $this->sexo_animal = $sexo;

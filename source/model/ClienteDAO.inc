@@ -16,17 +16,11 @@ class ClienteDAO extends GenericDAO{
   public function __construct(){
     // Chamar construtor da classe pai
     parent::__construct();
-
-    if(!isset($_SESSION['clientes'])){
-
-      $_SESSION['clientes'] = array();
-    }
-
   }
   
   /**
    * Registrar cliente no banco de dados
-   * @return int
+   * @return {Cliente} Cliente cadastrado
    */
   public function Reg_Cli(
     $nome,
@@ -35,9 +29,18 @@ class ClienteDAO extends GenericDAO{
     $cep,
     $email 
   ){
-    //TODO mudar para banco
-
-    $_SESSION['clientes'][] = new Cliente(
+    
+    $query = $this->prepare(
+      "INSERT INTO Cliente (nome, endereco, telefone, cep, email)
+            VALUES (?, ?, ?, ?, ?)"
+    );
+    
+    if($query === false) throw new PDOException("Erro na consulta");
+    
+    $query->execute([$nome, $endereco, $telefone, $cep, $email]);
+    
+    return new Cliente(
+      $this->lastInsertId(), //Código
       $nome,
       $endereco,
       $telefone,
@@ -58,18 +61,32 @@ class ClienteDAO extends GenericDAO{
    * Consultar cliente por nome no banco de dados
    * @param {string} $nome Nome do cliente
    * @return Cliente
+   * @throws PDOException
    */
   public function consultarPorNome($nome){
-    // TODO usar banco de dados real
-
-    foreach($_SESSION['clientes'] as $i => $cliente){
-      if($cliente->getNome() == $nome){
-        return $cliente;
-      }
-    }
-
-    return null;
-  
+    
+    $query = $this->prepare(
+      "SELECT codigo, nome, endereco, telefone, cep, email
+         FROM Cliente
+        WHERE nome = ?"
+    );
+    
+    if($query === false) throw new PDOException("Erro na consulta");
+    
+    $query->execute([$nome]);
+    
+    $result = $query->fetch();
+    
+    if($result === false) return null;
+    
+    return new Cliente(
+      $result["codigo"],
+      $result["nome"],
+      $result["endereco"],
+      $result["telefone"],
+      $result["cep"],
+      $result["email"]
+    );
   }
   
 }

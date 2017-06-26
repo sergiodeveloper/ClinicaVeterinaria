@@ -2,6 +2,7 @@
 
 // Incluir dependências
 require_once "GenericDAO.inc";
+require_once "Exame.inc";
 
 /**
  * Classe DAO para Exame. Irá manipular Exame no banco de dados

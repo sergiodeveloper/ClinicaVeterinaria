@@ -2,6 +2,7 @@
 
 // Incluir dependências
 require_once "GenericDAO.inc";
+require_once "EspecieDAO.inc";
 require_once "Especie.inc";
 require_once "Animal.inc";
 
@@ -17,10 +18,6 @@ class AnimalDAO extends GenericDAO{
   public function __construct(){
     // Chamar construtor da classe pai
     parent::__construct();
-
-    if(!isset($_SESSION['animais'])){
-      $_SESSION['animais'] = array();
-    }
   }
   
   /**
@@ -28,14 +25,14 @@ class AnimalDAO extends GenericDAO{
    * @return string
    */
   public function Vis_Animal($cliente){
-    //foreach($_SESSION['animais'] as $i => $animal){
-
-    //}
+    // TODO
   }
   
   /**
    * Registrar animal no banco de dados
+   * @param Especie $especie
    * @return int
+   * @throws PDOException
    */
   public function Reg_Ani(
     $nome,
@@ -44,22 +41,28 @@ class AnimalDAO extends GenericDAO{
     $especie,
     $dono
   ){
-    //TODO mudar para banco
-
-    
-
-    $animal = new Animal(
-      $nome,
-      $idade,
-      $sexo,
-      $especie
+    $query = $this->prepare(
+      "INSERT INTO Animal (nome, idade, sexo, especie, dono)
+            VALUES (?, ?, ?, ?, ?)"
     );
-
-    $animal->dono = $dono;
-
-    $_SESSION['animais'][] = $animal;
-
-    return $animal;
+    
+    if($query == false) throw new PDOException("Erro na consulta");
+    
+    $query->execute([
+      (string) $nome,
+      (int) $idade,
+      (int) $sexo,
+      $especie->getCodigo(),
+      $dono->getCodigo()
+    ]);
+    
+    return new Animal(
+      $this->lastInsertId(),
+      (string) $nome,
+      (int) $idade,
+      (int) $sexo,
+      $especie->getCodigo()
+    );
   }
 
   /**
@@ -68,16 +71,36 @@ class AnimalDAO extends GenericDAO{
    * @return Animal[]
    */
   public function obterAnimais($dono){
-    // TODO consultar em banco de dados
     
-    // Retornar lista de animais
-    $animais = array();
+    $query = $this->prepare(
+      "SELECT codigo, nome, idade, sexo, especie
+         FROM Animal
+        WHERE dono = ?"
+    );
     
-    foreach($_SESSION['animais'] as $i => $animal){
-      if($animal->dono == $dono)
-        $animais[] = $animal;
+    if($query === false) throw new PDOException("Erro na consulta");
+    
+    $query->execute([$dono->getCodigo()]);
+    
+    $results = $query->fetchAll();
+    
+    if($results === false) return null;
+    
+    $animais = [];
+    
+    foreach($results as $result){
+      $especieDao = new EspecieDAO();
+      $especie = $especieDao->encontrarEspeciePorCodigo($result["especie"]);
+      
+      $animais[] = new Animal(
+        $result["codigo"],
+        $result["nome"],
+        $result["idade"],
+        $result["sexo"],
+        $especie
+      );
     }
-
+    
     return $animais;
   }
   

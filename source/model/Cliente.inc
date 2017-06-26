@@ -9,6 +9,12 @@ require_once "Animal.inc";
 class Cliente{
   
   /**
+   * Código do cliente
+   * @type int
+   */
+  private $codigo;
+  
+  /**
    * Nome do cliente
    * @type string
    */
@@ -53,6 +59,7 @@ class Cliente{
    * @param {string} $email    Email do cliente
    */
   public function __construct(
+    $codigo,
     $nome,
     $endereco,
     $telefone,
@@ -60,6 +67,7 @@ class Cliente{
     $email
   ){
     // Manter atributos
+    $this->codigo = $codigo;
     $this->nom_cli = $nome;
     $this->end_cli = $endereco;
     $this->tel_cli = $telefone;
@@ -122,5 +130,13 @@ class Cliente{
    */
   public function getTelefone(){
     return $this->tel_cli;
+  }
+  
+  /**
+   * Obter código do cliente
+   * @return int
+   */
+  public function getCodigo(){
+    return $this->codigo;
   }
 }

@@ -9,6 +9,12 @@ require_once "Consulta.inc";
 class Tratamento{
   
   /**
+   * Código do tratamento
+   * @type int
+   */
+  private $codigo;
+  
+  /**
    * Data de início do tratamento em timestamp (long)
    * @type int
    */
@@ -32,12 +38,12 @@ class Tratamento{
    * @param {int} $fim    Data de fim em timestamp
    */
   public function __construct(
-    $nome,
-    $endereco,
+    $codigo,
     $inicio,
     $fim
   ){
     // Manter atributos
+    $this->codigo = $codigo;
     $this->dat_ini = $inicio;
     $this->dat_fim = $fim;
   }

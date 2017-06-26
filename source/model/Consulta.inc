@@ -10,6 +10,12 @@ require_once "Exame.inc";
 class Consulta{
   
   /**
+   * Código da consulta
+   * @type int
+   */
+  private $codigo;
+  
+  /**
    * Data da consulta em timestamp (long)
    * @type int
    */
@@ -33,10 +39,12 @@ class Consulta{
    * @param {string}  $historico Documentação histórica da consulta
    */
   public function __construct(
+    $codigo,
     $data,
     $historico
   ){
     // Manter atributos
+    $this->codigo = $codigo;
     $this->dat_con = $data;
     $this->historico = $historico;
   }

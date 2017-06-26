@@ -18,15 +18,18 @@ abstract class GenericDAO{
   public function __construct(){
     if(GenericDAO::$connection == null){
       // Abrir uma conexão com o banco de dados
-      /*
-      $connection = new \PDO($dsn, $user, $password); // << TODO
+      
+      $dsn = 'mysql:dbname=clinica;host=localhost';
+      $user = "root";
+      $password = "ROOT";
+      
+      $connection = new \PDO($dsn, $user, $password);
       
       $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
       $connection->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
       
       // Manter conexão na classe
       GenericDAO::$connection = $connection;
-      */
     }
   }
   
@@ -35,7 +38,7 @@ abstract class GenericDAO{
    * @param {string} $query Consulta a ser preparada
    * @throws PDOException Caso a consulta esteja mal formatada
    */
-  public function prepare(string $query){
+  public function prepare($query){
     return GenericDAO::$connection->prepare($query);
   }
   
